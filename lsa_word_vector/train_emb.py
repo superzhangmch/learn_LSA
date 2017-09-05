@@ -67,7 +67,7 @@ spr_matrix = sparse.coo_matrix((data_coor, (x_coor, y_coor)),shape=(total_words,
 print "train by SVD"
 svd = TruncatedSVD(n_components=128, n_iter=5, random_state=42, 
         algorithm ="arpack")
-        #algorithm ="randomized")
+        #algorithm ="randomized") # 两种训练方法；当=random方法时，n_iter 不生效。那么arpack应该是精确求解吧？
 word_emb = svd.fit_transform(spr_matrix)
 
 print "save to file", 
