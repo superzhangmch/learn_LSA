@@ -1,6 +1,8 @@
 学习：用 LSA 做词向量
 --------
-发现效果比 google 的word2vec 工具训练出的词向量还是差了些。
+发现效果比 google 的word2vec 工具训练出的词向量还是差了些。但无论如何它确实是work了。
+
+一行为一个文本，切词后，以词索引为row，文本中行号为col，用 scipy.sparse.coo_matrix 构建系数矩阵，然后用 sklearn.decomposition.TruncatedSVD 即训得一份词向量。
 
 Examples
 
