@@ -68,7 +68,7 @@ print "train by SVD"
 svd = TruncatedSVD(n_components=128, n_iter=5, random_state=42, 
         algorithm ="arpack")
         #algorithm ="randomized") # 两种训练方法；当=random方法时，n_iter 不生效。那么arpack应该是精确求解吧？
-word_emb = svd.fit_transform(spr_matrix)
+word_emb = svd.fit_transform(spr_matrix) # M=UEV≈U_k*E_k*V_k', 则transform(M)=V_k*M
 
 print "save to file", 
 print len(word_emb)
